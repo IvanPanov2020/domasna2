@@ -25,7 +25,7 @@
 }
 .lightbox-item {
   min-height: 80vh;
-  background: url("../img/apple.jpg") center/cover fixed no-repeat;
+  background: url() center/cover fixed no-repeat;
   border-radius: 0.3rem;
 }
 .lightbox-close {
