@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="/css/food.css" />
+
+    <meta name="theme-color" content="#fafafa" />
+  </head>
+  <body>
+    <!--filter buttons -->
+    <div class="row">
+        <div
+          class="col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap"
+        >
+          <a
+            href="#"
+            class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
+            data-filter="all" onclick="showAll('all')"
+          >All</a>
+          <a
+            href="#"
+            class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
+            data-filter="Fruits" onclick="showAll('fruits')"
+            >Fruits</a
+          >
+          <a
+            href="#"
+            class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
+            data-filter="Vegetables" onclick="showAll('vegetables')"
+            >Vegetables</a
+          >
+        </div>
+      </div>
+      <!-- search box -->
+      <div class="row">
+        <div class="col-10 mx-auto col-md-6">
+          <form>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text search-box" id="search-icon"><i class="fas fa-search"></i
+                ></span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="item...."
+                id="search-item" onkeyup="searchFunction()"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--end of filter buttons -->
+      <div class="row" class="store-items" id="store-items">
+        <!-- single item -->
+        <div
+          class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item"
+          data-item="fruits"
+        >
+          <div class="card">
+            <div class="img-container">
+              <img
+                src="./img/apple.jpg"
+                class="card-img-top store-img fruits "
+                alt="Apple"
+                height="250"
+              />
+            </div>
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div
+          class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item"
+          data-item="fruits"
+        >
+          <div class="card ">
+            <div class="img-container">
+              <img
+                src="./img/banana.jpg"
+                class="card-img-top store-img fruits"
+                alt="banana"
+               height="250"
+              />
+            </div>
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div
+          class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item"
+          data-item="fruits"
+        >
+          <div class="card">
+            <div class="img-container">
+              <img
+                src="./img/watermelon.jpg"
+                class="card-img-top store-img fruits"
+                alt="watermelon"
+                height="250"
+              />
+            </div>
+          </div>
+          <!-- end of card-->
+        </div>
+        <!--end of single store item-->
+        <!-- single item -->
+        <div class="row" class="store-items" id="store-items">
+          <!-- single item -->
+          <div
+            class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item"
+            data-item="vegetables"
+          >
+            <div class="card">
+              <div class="img-container">
+                <img
+                  src="./img/carrot.jpeg"
+                  class="card-img-top store-img vegetables"
+                  alt="carrot"
+                 height="250"
+                />
+              </div>
+            </div>
+            <!-- end of card-->
+          </div>
+          <!--end of single store item-->
+          <!-- single item -->
+          <div
+            class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item"
+            data-item="vegetables"
+          >
+            <div class="card">
+              <div class="img-container">
+                <img
+                  src="./img/cucumber.jpg"
+                  class="card-img-top store-img vegetables"
+                  alt="cucumber"
+                  height="250"
+                />
+              </div>
+            </div>
+            <!-- end of card-->
+          </div>
+          <!--end of single store item-->
+          <!-- single item -->
+          <div
+            class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item"
+            data-item="vegetables"
+          >
+            <div class="card">
+              <div class="img-container">
+                <img
+                  src="./img/lettuce.jpg"
+                  class="card-img-top store-img vegetables"
+                  alt="lettuce"
+                 height="250"
+                />
+              </div>
+            </div>
+            <!-- end of card-->
+          </div>
+          <!--end of single store item-->
+          <!-- single item -->
+        
+        <!--end of single store item-->
+      </div>
+
+    <!-- modal-container -->
+    <div id="container-fluid" class="container-fluid">
+      <div class="row lightbox-container align-items-center">
+        <div class="col-10 col-md-10 mx-auto text-right lightbox-holder">
+          <span class="lightbox-close">&times;</span>
+          <div class="lightbox-item"></div>
+          <span class="lightbox-control btnLeft"></span>
+          <span class="lightbox-control btnRight"></span>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="js/main-gallery1.js"></script>   -->
+    <script>
+      showAll("all");
+
+function showAll(c) {
+  var site;
+
+  site = document.getElementsByClassName("store-img");
+  console.log(site);
+  if (c == "all") c = "";
+  for (var i = 0; i < site.length; i++) {
+    remove(site[i], "show");
+    if (site[i].className.indexOf(c) > -1) {
+      add(site[i], "show");
+    }
+  }
+}
+function add(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+function remove(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+function searchFunction() {
+  var input, zbor, imgs;
+input=document.getElementById("search-item");
+zbor=input.value.toUpperCase();
+imgs=document.getElementsByTagName("img");
+for(var i=0; i<imgs.length; i++)
+{
+  
+  if(imgs[i].alt.toUpperCase().indexOf(zbor) > -1)
+  {
+      imgs[i].style.display = "block";
+  } else {
+    imgs[i].style.display = "none";
+  }
+}
+}
+    </script>
+  </body>
+</html>
